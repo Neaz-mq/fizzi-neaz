@@ -40,9 +40,17 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         </div>
 
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-          <PrismicNextImage field={slice.primary.cans_image} />
-          <PrismicRichText field={slice.primary.second_heading} />
-          <PrismicRichText field={slice.primary.second_body} />
+          <PrismicNextImage  className="w-full md:hidden" field={slice.primary.cans_image} />
+
+          <div>
+          <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
+            {asText(slice.primary.second_heading)}
+            </h2>
+          
+        <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal text-sky-950">
+              <PrismicRichText field={slice.primary.second_body} />
+            </div>
+        </div>
         </div>
       </div>
     </Bounded>
