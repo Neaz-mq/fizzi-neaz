@@ -5,7 +5,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Bounded } from "@/components/Bounded";
 import Button from "@/components/Button";
 import { TextSplitter } from "@/components/TextSplitter";
@@ -18,14 +18,14 @@ import { View } from "@react-three/drei";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /**
- * Props for `Hero`.
+ * Props for `Hero` slice.
  */
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 /**
  * Component for "Hero" Slices.
  */
-const Hero = ({ slice }: HeroProps): JSX.Element => {
+const Hero = ({ slice }: HeroProps) => {
   const ready = useStore((state) => state.ready);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
@@ -44,23 +44,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           delay: 0.3,
           stagger: 1,
         })
-        .from(
-          ".hero-subheading",
-          {
-            opacity: 0,
-            y: 30,
-          },
-          "+=.8",
-        )
-        .from(".hero-body", {
-          opacity: 0,
-          y: 10,
-        })
-        .from(".hero-button", {
-          opacity: 0,
-          y: 10,
-          duration: 0.6,
-        });
+        .from(".hero-subheading", { opacity: 0, y: 30 }, "+=.8")
+        .from(".hero-body", { opacity: 0, y: 10 })
+        .from(".hero-button", { opacity: 0, y: 10, duration: 0.6 });
 
       const scrollTl = gsap.timeline({
         scrollTrigger: {
@@ -74,14 +60,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       scrollTl
         .fromTo(
           "body",
-          {
-            backgroundColor: "#FDE047",
-          },
-          {
-            backgroundColor: "#D9F99D",
-            overwrite: "auto",
-          },
-          1,
+          { backgroundColor: "#FDE047" },
+          { backgroundColor: "#D9F99D", overwrite: "auto" },
+          1
         )
         .from(".text-side-heading .split-char", {
           scale: 1.3,
@@ -92,12 +73,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           ease: "back.out(3)",
           duration: 0.5,
         })
-        .from(".text-side-body", {
-          y: 20,
-          opacity: 0,
-        });
+        .from(".text-side-body", { y: 20, opacity: 0 });
     },
-    { dependencies: [ready, isDesktop] },
+    { dependencies: [ready, isDesktop] }
   );
 
   return (
@@ -109,7 +87,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       {isDesktop && (
         <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
           <Scene />
-          <Bubbles count={300} speed={2} repeat={true} />
+          <Bubbles count={300} speed={2} repeat />
         </View>
       )}
 
