@@ -5,17 +5,15 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Bounded } from "@/components/Bounded";
 import Button from "@/components/Button";
 import { TextSplitter } from "@/components/TextSplitter";
-
-
 import { useStore } from "@/hooks/useStore";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Bubbles } from "./Bubbles";
+import Scene from "./Scene";
+import { View } from "@react-three/drei";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 

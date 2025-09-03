@@ -7,8 +7,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import FloatingCan from "@/components/FloatingCan";
+
 import { useStore } from "@/hooks/useStore";
+import FloatingCan from "@/components/FloatingCan";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
